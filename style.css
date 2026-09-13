@@ -794,3 +794,749 @@ body {
 /* ANIMAÇÕES CSS */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+
+/* =========================================================
+   NOVO QUADRO HORIZONTAL DE ATIVIDADES
+   ========================================================= */
+
+.activity-form-actions {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+}
+
+.activity-form-actions .btn-submit-action {
+    flex: 1;
+}
+
+.btn-cancel-edit {
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+.atividades-grade-wrapper {
+    width: 100%;
+    margin-top: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--card);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.atividades-grade-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.atividades-grade-table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.78rem;
+}
+
+.atividades-grade-table th,
+.atividades-grade-table td {
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.atividades-grade-table thead th {
+    background: var(--card);
+    color: var(--text);
+    text-align: center;
+    vertical-align: middle;
+}
+
+.atividades-grade-table thead tr:first-child th {
+    border-top: 0;
+}
+
+.atividades-grade-table th:last-child,
+.atividades-grade-table td:last-child {
+    border-right: 0;
+}
+
+.atividades-grade-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.aluno-fixed-head {
+    position: sticky;
+    left: 0;
+    z-index: 8;
+    min-width: 235px;
+    width: 235px;
+    padding: 12px;
+    text-align: left !important;
+    background: var(--primary) !important;
+    color: #fff !important;
+    border-right: 2px solid var(--primary) !important;
+}
+
+.atividade-group-head {
+    min-width: 190px;
+    padding: 10px 8px;
+    background: var(--primary) !important;
+    color: #fff !important;
+}
+
+.atividade-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-width: 170px;
+    text-align: left;
+}
+
+.atividade-header-content > div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.atividade-index {
+    font-size: 0.66rem;
+    font-weight: 800;
+    opacity: 0.82;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.atividade-name {
+    font-size: 0.82rem;
+    line-height: 1.15;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.atividade-header-content small {
+    font-size: 0.65rem;
+    opacity: 0.82;
+}
+
+.atividade-header-actions {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.btn-grade-edit,
+.btn-grade-delete {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-grade-edit:hover,
+.btn-grade-delete:hover {
+    background: rgba(255,255,255,0.22);
+}
+
+.btn-grade-edit:disabled,
+.btn-grade-delete:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.nota-subhead,
+.rec-subhead {
+    min-width: 95px;
+    padding: 7px 8px !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.04em;
+}
+
+.nota-subhead {
+    background: rgba(13,43,92,0.10) !important;
+}
+
+.rec-subhead {
+    background: rgba(245,158,11,0.13) !important;
+}
+
+.aluno-grade-name {
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    min-width: 235px;
+    width: 235px;
+    padding: 10px 12px !important;
+    background: var(--card);
+    text-align: left;
+    color: var(--text);
+    box-shadow: 4px 0 8px rgba(0,0,0,0.04);
+}
+
+.grade-input-cell {
+    min-width: 95px;
+    width: 95px;
+    padding: 7px 6px !important;
+    text-align: center;
+    vertical-align: middle;
+    background: var(--card);
+}
+
+.grade-input-cell input[type="number"] {
+    width: 76px;
+    padding: 7px 4px;
+    border: 2px solid orange;
+    border-radius: 0;
+    background: var(--bg);
+    color: var(--text);
+    text-align: center;
+    font-weight: 700;
+    outline: none;
+}
+
+.grade-input-cell input[type="number"]:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.grade-input-cell input[type="number"]:disabled {
+    background: rgba(0,0,0,0.04);
+    color: var(--text-light);
+    cursor: not-allowed;
+    border-color: transparent;
+}
+
+.grade-input-cell span {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.62rem;
+    line-height: 1;
+}
+
+.atividade-vazia-header {
+    padding: 16px;
+    background: var(--primary) !important;
+    color: #fff !important;
+    text-align: center !important;
+}
+
+.atividade-vazia-cell {
+    padding: 22px;
+    text-align: center;
+    color: var(--text-light);
+}
+
+@media (max-width: 700px) {
+    .activity-form-actions {
+        flex-direction: column;
+    }
+
+    .aluno-fixed-head,
+    .aluno-grade-name {
+        min-width: 185px;
+        width: 185px;
+    }
+
+    .atividade-group-head {
+        min-width: 175px;
+    }
+
+    .grade-input-cell,
+    .nota-subhead,
+    .rec-subhead {
+        min-width: 88px;
+        width: 88px;
+    }
+
+    .grade-input-cell input[type="number"] {
+        width: 70px;
+    }
+}
+
+
+/* =========================================================
+   VERSÃO FINAL — ATIVIDADE COM CAMPOS EMPILHADOS
+   NOTA / RECUPERAÇÃO / NOTA FINAL
+   ========================================================= */
+.atividades-grade-table {
+    min-width: 1200px;
+}
+
+.atividade-column-head {
+    min-width: 185px;
+    width: 185px;
+    padding: 10px 8px !important;
+}
+
+.atividade-header-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 2px;
+}
+
+.atividade-stacked-cell {
+    min-width: 185px;
+    width: 185px;
+    padding: 8px 10px !important;
+    vertical-align: top;
+    background: var(--card);
+}
+
+.nota-field-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 5px 0 7px;
+    border-bottom: 1px solid var(--border);
+}
+
+.nota-field-stack label {
+    font-size: 0.62rem;
+    font-weight: 800;
+    color: var(--text-light);
+    letter-spacing: .04em;
+    text-align: left;
+}
+
+.nota-field-stack input[type="number"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 7px 8px;
+    border: 1px solid #cfd7e3;
+    border-radius: 5px;
+    background: var(--bg);
+    color: var(--text);
+    text-align: center;
+    font-weight: 700;
+    outline: none;
+}
+
+.nota-field-stack input[type="number"]:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.nota-field-stack input[type="number"]:disabled {
+    background: #f1f3f5;
+    color: var(--text-light);
+    cursor: not-allowed;
+}
+
+.recuperacao-field {
+    background: rgba(245, 158, 11, .035);
+    margin: 0 -2px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.nota-final-field {
+    border-bottom: 0;
+    padding-bottom: 2px;
+}
+
+.nota-final-value {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: .82rem;
+    font-weight: 800;
+    background: #f4f6f8;
+    border: 1px solid var(--border);
+}
+
+.nota-final-value.nota-alta {
+    color: #166534;
+    background: #dcfce7;
+    border-color: #a7e0b8;
+}
+
+.nota-final-value.nota-baixa {
+    color: #b91c1c;
+    background: #fee2e2;
+    border-color: #f4b4b4;
+}
+
+.summary-head {
+    min-width: 85px;
+    padding: 10px 6px !important;
+    background: var(--primary) !important;
+    color: #fff !important;
+    font-size: .68rem !important;
+}
+
+.summary-cell {
+    min-width: 85px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px 6px !important;
+    background: var(--card);
+    font-size: .75rem;
+}
+
+.aluno-grade-name {
+    font-size: .73rem;
+}
+
+.aluno-number {
+    color: var(--text-light);
+    margin-right: 3px;
+}
+
+
+@media (max-width: 700px) {
+    .atividades-grade-table {
+        min-width: 1050px;
+    }
+    .atividade-column-head,
+    .atividade-stacked-cell {
+        min-width: 155px;
+        width: 155px;
+    }
+    .aluno-fixed-head,
+    .aluno-grade-name {
+        min-width: 190px;
+        width: 190px;
+    }
+}
+
+
+/* CORREÇÃO DE EXIBIÇÃO NO COMPUTADOR — QUADRO DE ATIVIDADES */
+@media (min-width: 900px) {
+    .main-container {
+        max-width: 1400px;
+        padding: 24px;
+    }
+    .atividades-grade-wrapper {
+        display: block !important;
+        visibility: visible !important;
+        width: 100%;
+    }
+    .atividades-grade-scroll {
+        display: block !important;
+        visibility: visible !important;
+        overflow-x: auto;
+    }
+    .atividades-grade-table {
+        display: table !important;
+        visibility: visible !important;
+    }
+}
+
+/* Uma atividade por coluna; dentro da coluna: Nota, Recuperação e Nota Final. */
+.atividade-stacked-cell {
+    min-width: 185px;
+    width: 185px;
+}
+.nota-final-value {
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef5ff;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    font-weight: 800;
+}
+
+
+
+.nota-bimestre-head {
+    min-width: 145px;
+    width: 145px;
+    padding: 10px 8px;
+    background: var(--primary) !important;
+    color: #fff !important;
+    text-align: center;
+    vertical-align: middle;
+    font-size: .72rem;
+    line-height: 1.2;
+    position: sticky;
+    right: 0;
+    z-index: 6;
+}
+
+.nota-final-bimestre-cell {
+    min-width: 145px;
+    width: 145px;
+    padding: 10px 8px !important;
+    text-align: center;
+    vertical-align: middle;
+    background: var(--card);
+    position: sticky;
+    right: 0;
+    z-index: 4;
+    box-shadow: -4px 0 8px rgba(0,0,0,.04);
+}
+
+.nota-final-bimestre-cell strong {
+    display: inline-flex;
+    min-width: 82px;
+    min-height: 38px;
+    padding: 7px 10px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-size: .92rem;
+    font-weight: 900;
+}
+
+.nota-alta {
+    color: #0756b6 !important;
+    background: #e8f1ff !important;
+}
+
+.nota-baixa {
+    color: #c62828 !important;
+    background: #ffebeb !important;
+}
+
+@media (min-width: 900px) {
+    .main-container {
+        max-width: none !important;
+        width: 100% !important;
+        padding-left: 28px !important;
+        padding-right: 28px !important;
+    }
+}
+
+
+/* =========================================================
+   IDENTIDADE VISUAL — PREFEITURA DE ABRE CAMPO
+   Referência: cabeçalho vinho, fundo claro, bordas suaves
+   e cartões arredondados do portal municipal.
+   ========================================================= */
+:root {
+    --bg: #f8f5f2;
+    --card: #ffffff;
+    --text: #172033;
+    --text-light: #647084;
+    --primary: #6b142d;
+    --primary-light: #f7e9ed;
+    --secondary: #8f1d39;
+    --border: #e3d9d4;
+    --success: #15803d;
+    --warning: #b7791f;
+    --danger: #dc2626;
+    --radius-lg: 18px;
+    --radius-md: 11px;
+    --shadow: 0 10px 30px rgba(70, 28, 39, .08);
+}
+body { background: linear-gradient(180deg,#fbfaf8 0%,#f5f0ed 100%); }
+.topbar {
+    height: 82px;
+    background: linear-gradient(105deg,#640f29,#8f1835);
+    border-bottom: 3px solid #d4af37;
+    color:#fff;
+    padding: 0 28px;
+    box-shadow: 0 5px 18px rgba(68,13,31,.18);
+}
+.topbar::before {
+    content:"";
+    width:48px;height:48px;flex:0 0 48px;
+    background:url('brasao.png') center/contain no-repeat;
+    margin-right:12px;
+}
+.topbar-title { color:#fff; font-size:1.05rem; letter-spacing:0; flex:1; }
+.topbar-title::after { content:"Secretaria Municipal de Educação • Prefeitura Municipal de Abre Campo"; display:block; font-size:.63rem; font-weight:500; opacity:.86; margin-top:3px; }
+.menu-hamburger,.theme-toggle { color:#fff; border-radius:10px; }
+.menu-hamburger { order:-1; margin-right:8px; }
+.sidebar {
+    width:300px; left:-310px; background:#fff;
+    padding:22px 16px; box-shadow:10px 0 30px rgba(65,18,30,.15);
+}
+.sidebar-header { border-bottom:1px solid var(--border); }
+.school-logo-menu { height:72px; }
+.sidebar-nav ul li { border-radius:12px; margin-bottom:7px; }
+.sidebar-nav ul li:hover,.sidebar-nav ul li:active { background:var(--primary-light); color:var(--primary); }
+.main-container { max-width:1280px; padding:28px; }
+.welcome-banner,.materia-header-banner,.table-meta-header,.card-box,.progress-container,.hub-card-btn,.table-responsive-container,.atividades-grade-wrapper {
+    border:1px solid #eadfdb; box-shadow:var(--shadow); border-radius:18px;
+}
+.welcome-banner { background:linear-gradient(120deg,#6b142d,#941c3b); box-shadow:0 14px 32px rgba(107,20,45,.18); }
+.banner-logo { background:#fff; border-radius:50%; padding:6px; }
+.section-title,.box-title,.table-meta-header h3,.materia-title-wrapper h2 { color:var(--text); }
+.btn-submit-action,.hub-card-btn:hover { background:var(--primary) !important; }
+.btn-submit-action { border-radius:11px; box-shadow:0 6px 14px rgba(107,20,45,.16); }
+.hub-card-btn { background:#fff; }
+.hub-card-btn:hover { color:#fff; transform:translateY(-2px); }
+.input-group input,.input-group select,.search-box-input,select,input[type="number"],input[type="text"] { border-color:#d9cfca; border-radius:10px; }
+.table-custom-format,.atividades-grade-table { border-radius:14px; overflow:hidden; }
+.table-custom-format thead th,.atividades-grade-table thead th { background:var(--primary) !important; color:#fff !important; border-color:#8c304a !important; }
+.table-custom-format td,.table-custom-format th,.atividades-grade-table td,.atividades-grade-table th { border-color:#eadfdb !important; }
+.atividade-group-head { background:var(--primary) !important; }
+.aluno-fixed-head { background:var(--primary) !important; border-right-color:#8c304a !important; }
+.nota-final-value { background:#f7f9fc; border-color:#dfe5ec; }
+.nota-alta { color:#0756b6 !important; background:#e8f1ff !important; }
+.nota-baixa { color:#c62828 !important; background:#ffebeb !important; }
+.info-alert { border-radius:11px; }
+.decoration-border { position:relative; overflow:hidden; }
+.decoration-border::before { content:""; position:absolute; inset:0 0 auto 0; height:4px; background:linear-gradient(90deg,#6b142d,#d4af37,#6b142d); }
+@media (min-width: 900px) {
+    .main-container { max-width:none !important; width:100% !important; padding:28px 34px !important; }
+}
+@media (max-width: 700px) {
+    body { padding-top:68px; }
+    .topbar { height:68px; padding:0 12px; }
+    .topbar::before { width:38px;height:38px;flex-basis:38px;margin-right:5px; }
+    .topbar-title { font-size:.82rem; line-height:1.05; }
+    .topbar-title::after { font-size:.52rem; }
+    .main-container { padding:14px 12px 28px; width:100%; }
+    .welcome-banner,.materia-header-banner,.table-meta-header,.card-box,.progress-container { border-radius:15px; }
+    .hub-options-grid { grid-template-columns:1fr 1fr; gap:10px; }
+    .hub-card-btn { min-height:112px; padding:12px 9px; }
+    .atividades-grade-wrapper { border-radius:14px; }
+    .atividade-stacked-cell { min-width:168px; width:168px; }
+    .aluno-fixed-head,.aluno-grade-name { min-width:205px; width:205px; }
+}
+@media (min-width: 701px) and (max-width: 1200px) {
+    .main-container { padding:22px; }
+    .atividade-stacked-cell { min-width:175px; width:175px; }
+}
+
+
+/* AJUSTES FINAIS — PORTAL DO PROFESSOR / IDENTIDADE MUNICIPAL */
+:root {
+    --bg: #f7f3f0;
+    --card: #ffffff;
+    --text: #182235;
+    --text-light: #667085;
+    --primary: #6b142d;
+    --primary-light: #f8e9ed;
+    --secondary: #8f1d39;
+    --border: #e5d9d5;
+    --success: #15803d;
+    --warning: #b7791f;
+    --danger: #c62828;
+    --radius-lg: 18px;
+    --radius-md: 11px;
+    --shadow: 0 10px 30px rgba(70, 28, 39, .08);
+}
+
+.student-registration-card { margin-top: 18px; }
+.input-grid-cadastro {
+    display:grid; grid-template-columns:minmax(0, 1fr) 260px; gap:16px; margin-bottom:18px;
+}
+.student-enrollment-date { display:block; margin-top:4px; font-size:.72rem; color:var(--text-light); font-weight:500; }
+#table-cadastro-alunos-corpo td:nth-child(1), #table-cadastro-alunos-corpo td:nth-child(2) { text-align:center; white-space:nowrap; }
+#table-cadastro-alunos-corpo td:nth-child(2) { font-weight:800; color:var(--primary); letter-spacing:.3px; }
+
+/* Identificação institucional */
+.topbar-title { font-weight:800; }
+.topbar-title::after { content:"Secretaria Municipal de Educação • Prefeitura Municipal de Abre Campo"; }
+
+/* Bordas e campos mais refinados */
+.card-box, .table-meta-header, .table-responsive-container, .atividades-grade-wrapper, .progress-container, .materia-header-banner, .welcome-banner, .hub-card-btn {
+    border:1px solid #e5d9d5 !important;
+    box-shadow:0 8px 24px rgba(72, 29, 41, .06);
+}
+input, select, textarea, .search-box-input { border:1px solid #d8cbc6 !important; border-radius:11px !important; }
+input:focus, select:focus, textarea:focus { border-color:#8f1d39 !important; box-shadow:0 0 0 3px rgba(143,29,57,.10) !important; outline:none; }
+
+@media (max-width: 700px) {
+    .input-grid-cadastro { grid-template-columns:1fr; gap:10px; }
+    .student-registration-card { padding:14px; }
+    #table-cadastro-alunos-corpo td, #table-cadastro-alunos-corpo th { font-size:.78rem; }
+    .student-enrollment-date { font-size:.66rem; }
+}
+@media (min-width: 701px) {
+    .student-registration-card { padding:22px; }
+}
+
+
+/* REFINO DA TABELA DE ALUNOS — LINHAS MAIS FORTES E ZEBRADO SUAVE */
+.table-custom-format,
+.atividades-grade-table,
+#table-notas {
+    border: 2px solid #cfc5c1 !important;
+}
+.table-custom-format th,
+.table-custom-format td,
+.atividades-grade-table th,
+.atividades-grade-table td,
+#table-notas th,
+#table-notas td {
+    border-right: 1.5px solid #c9bfbb !important;
+    border-bottom: 1.5px solid #c9bfbb !important;
+}
+.table-custom-format tbody tr:nth-child(odd),
+#table-notas tbody tr:nth-child(odd),
+.atividades-grade-table tbody tr:nth-child(odd) {
+    background: #ffffff !important;
+}
+.table-custom-format tbody tr:nth-child(even),
+#table-notas tbody tr:nth-child(even),
+.atividades-grade-table tbody tr:nth-child(even) {
+    background: #f1f3f5 !important;
+}
+.table-custom-format tbody tr:hover,
+#table-notas tbody tr:hover,
+.atividades-grade-table tbody tr:hover {
+    background: #e9ecef !important;
+}
+#table-notas td,
+#table-notas th {
+    padding: 10px 9px !important;
+}
+#table-notas td:first-child {
+    min-width: 285px;
+    text-align: left;
+}
+.student-actions-cell {
+    min-width: 115px;
+    text-align: center !important;
+    white-space: nowrap;
+}
+.btn-table-edit {
+    border: 1.5px solid #8c304a;
+    background: #fff;
+    color: #6b142d;
+    border-radius: 8px;
+    padding: 7px 10px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .18s ease;
+}
+.btn-table-edit:hover {
+    background: #6b142d;
+    color: #fff;
+    transform: translateY(-1px);
+}
+.input-grid-cadastro {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+.student-enrollment-date {
+    display: block;
+    margin-top: 4px;
+    color: #69727d;
+    font-size: .72rem;
+    line-height: 1.35;
+}
+@media (max-width: 700px) {
+    .input-grid-cadastro { grid-template-columns: 1fr !important; }
+    #table-notas td:first-child { min-width: 250px; }
+    .table-custom-format th,
+    .table-custom-format td,
+    #table-notas th,
+    #table-notas td { border-width: 1px !important; }
+}
